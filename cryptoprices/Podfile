@@ -8,6 +8,7 @@ target 'cryptoprices' do
   # Pods for cryptoprices
   pod 'Alamofire'
   pod 'SwiftyJSON'
+  pod 'MBProgressHUD'
 
   target 'cryptopricesTests' do
     inherit! :search_paths

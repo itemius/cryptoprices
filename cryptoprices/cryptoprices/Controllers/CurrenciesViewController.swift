@@ -8,6 +8,7 @@
 
 import UIKit
 import SwiftyJSON
+import MBProgressHUD
 
 class CurrenciesViewController: UIViewController {
 
@@ -20,8 +21,17 @@ class CurrenciesViewController: UIViewController {
         tableView.register(UINib(nibName: "CurrencyTableViewCell", bundle: nil), forCellReuseIdentifier: "CurrencyCell")
         tableView.delegate = self
         tableView.dataSource = self
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(refreshCurrenciesData(_:)), for: .valueChanged)
 
+        tableView.refreshControl = refreshControl
+        
+        MBProgressHUD.showAdded(to: self.view, animated: true)
         self.loadCurrencies()
+    }
+
+    @objc private func refreshCurrenciesData(_ sender: Any) {
+        loadCurrencies()
     }
 
     func loadCurrencies() {
@@ -36,6 +46,8 @@ class CurrenciesViewController: UIViewController {
                             self.currenciesList.append(currencyModel)
                         }
                         self.tableView.reloadData()
+                        self.tableView.refreshControl?.endRefreshing()
+                        MBProgressHUD.hide(for: self.view, animated: true)
                     }
                 }
             case .failure(let error):
