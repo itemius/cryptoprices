@@ -16,6 +16,9 @@
 		503E1A1422AC1483009F1574 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 503E1A1222AC1483009F1574 /* LaunchScreen.storyboard */; };
 		503E1A1F22AC1483009F1574 /* cryptopricesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 503E1A1E22AC1483009F1574 /* cryptopricesTests.swift */; };
 		503E1A2A22AC32F1009F1574 /* CurrencyDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 503E1A2922AC32F1009F1574 /* CurrencyDetailViewController.swift */; };
+		503E1A3422AC394C009F1574 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 503E1A3322AC394C009F1574 /* Currency.swift */; };
+		503E1A3722AC3CEF009F1574 /* CurrencyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 503E1A3522AC3CEF009F1574 /* CurrencyTableViewCell.swift */; };
+		503E1A3822AC3CEF009F1574 /* CurrencyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 503E1A3622AC3CEF009F1574 /* CurrencyTableViewCell.xib */; };
 		E27FEF8AA346BD6B44FB8BCF /* Pods_cryptoprices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86EC840179B38AD194DC86FD /* Pods_cryptoprices.framework */; };
 /* End PBXBuildFile section */
 
@@ -42,6 +45,9 @@
 		503E1A1E22AC1483009F1574 /* cryptopricesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cryptopricesTests.swift; sourceTree = "<group>"; };
 		503E1A2022AC1483009F1574 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		503E1A2922AC32F1009F1574 /* CurrencyDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyDetailViewController.swift; sourceTree = "<group>"; };
+		503E1A3322AC394C009F1574 /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
+		503E1A3522AC3CEF009F1574 /* CurrencyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyTableViewCell.swift; sourceTree = "<group>"; };
+		503E1A3622AC3CEF009F1574 /* CurrencyTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CurrencyTableViewCell.xib; sourceTree = "<group>"; };
 		5879EB303B8ECA8FFE096CE4 /* Pods-cryptoprices.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-cryptoprices.debug.xcconfig"; path = "Pods/Target Support Files/Pods-cryptoprices/Pods-cryptoprices.debug.xcconfig"; sourceTree = "<group>"; };
 		723F5113CCFF11E22C44F6A0 /* Pods-cryptopricesTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-cryptopricesTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-cryptopricesTests/Pods-cryptopricesTests.debug.xcconfig"; sourceTree = "<group>"; };
 		86EC840179B38AD194DC86FD /* Pods_cryptoprices.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_cryptoprices.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -116,6 +122,7 @@
 		503E1A2B22AC350F009F1574 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				503E1A3322AC394C009F1574 /* Currency.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -132,8 +139,8 @@
 			isa = PBXGroup;
 			children = (
 				503E1A0922AC1481009F1574 /* CurrenciesViewController.swift */,
-				503E1A0B22AC1481009F1574 /* FavoritesViewController.swift */,
 				503E1A2922AC32F1009F1574 /* CurrencyDetailViewController.swift */,
+				503E1A0B22AC1481009F1574 /* FavoritesViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -150,6 +157,8 @@
 		503E1A3122AC37C6009F1574 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				503E1A3522AC3CEF009F1574 /* CurrencyTableViewCell.swift */,
+				503E1A3622AC3CEF009F1574 /* CurrencyTableViewCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -258,6 +267,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				503E1A3822AC3CEF009F1574 /* CurrencyTableViewCell.xib in Resources */,
 				503E1A1422AC1483009F1574 /* LaunchScreen.storyboard in Resources */,
 				503E1A1122AC1483009F1574 /* Assets.xcassets in Resources */,
 				503E1A0F22AC1481009F1574 /* Main.storyboard in Resources */,
@@ -338,8 +348,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				503E1A0C22AC1481009F1574 /* FavoritesViewController.swift in Sources */,
+				503E1A3422AC394C009F1574 /* Currency.swift in Sources */,
 				503E1A0822AC1481009F1574 /* AppDelegate.swift in Sources */,
 				503E1A2A22AC32F1009F1574 /* CurrencyDetailViewController.swift in Sources */,
+				503E1A3722AC3CEF009F1574 /* CurrencyTableViewCell.swift in Sources */,
 				503E1A0A22AC1481009F1574 /* CurrenciesViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
