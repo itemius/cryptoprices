@@ -17,14 +17,43 @@
                     <view key="view" contentMode="scaleToFill" id="tsR-hK-woN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Kdo-rN-l2E">
+                                <rect key="frame" x="0.0" y="44" width="375" height="685"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Kdo-rN-l2E" firstAttribute="bottom" secondItem="PQr-Ze-W5v" secondAttribute="bottom" id="47e-7m-bxa"/>
+                            <constraint firstItem="Kdo-rN-l2E" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" id="6yZ-Lp-RvD"/>
+                            <constraint firstItem="Kdo-rN-l2E" firstAttribute="top" secondItem="PQr-Ze-W5v" secondAttribute="top" id="UBr-DS-Tgg"/>
+                            <constraint firstItem="Kdo-rN-l2E" firstAttribute="trailing" secondItem="PQr-Ze-W5v" secondAttribute="trailing" id="Z6x-ed-v91"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="PQr-Ze-W5v"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="List" id="acW-dT-cKf"/>
+                    <tabBarItem key="tabBarItem" title="List" id="acW-dT-cKf">
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-16"/>
+                    </tabBarItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="750" y="-320"/>
+            <point key="canvasLocation" x="749.60000000000002" y="-320.68965517241378"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="QmU-Jw-eui">
+            <objects>
+                <viewController id="ppY-S3-cJX" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="EgN-sb-5pY">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="225-oP-Uwt"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="h5G-Ti-hdh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1633" y="-321"/>
         </scene>
         <!--Favorites-->
         <scene sceneID="wg7-f3-ORb">
@@ -36,7 +65,9 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="O1u-W8-tvY"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Favorites" id="cPa-gy-q4n"/>
+                    <tabBarItem key="tabBarItem" title="Favorites" id="cPa-gy-q4n">
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-16"/>
+                    </tabBarItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
