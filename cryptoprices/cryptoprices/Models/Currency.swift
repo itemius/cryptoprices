@@ -10,15 +10,17 @@ import Foundation
 
 class Currency {
 
-    var name: String
-    var symbol: String
-    var priceUSD: Double
-    var priceBTC: Double
+    var id: String = ""
+    var name: String = ""
+    var symbol: String = ""
+    var priceUSD: Double = 0.0
+    var priceBTC: Double = 0.0
 
-    init(name: String, symbol: String, priceUSD: Double, priceBTC: Double) {
-        self.name = name
-        self.symbol = symbol
-        self.priceUSD = priceUSD
-        self.priceBTC = priceBTC
-    }
+//    init(id: String, name: String, symbol: String, priceUSD: Double, priceBTC: Double) {
+//        self.id = id
+//        self.name = name
+//        self.symbol = symbol
+//        self.priceUSD = priceUSD
+//        self.priceBTC = priceBTC
+//    }
 }

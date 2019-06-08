@@ -6,11 +6,11 @@ target 'cryptoprices' do
   use_frameworks!
 
   # Pods for cryptoprices
+  pod 'Alamofire'
+  pod 'SwiftyJSON'
 
   target 'cryptopricesTests' do
     inherit! :search_paths
-    pod 'Alamofire'
-    pod 'SwiftyJSON'
   end
 
 end
