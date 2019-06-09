@@ -7,20 +7,17 @@
 //
 
 import Foundation
+import RealmSwift
 
-class Currency {
+class Currency: Object {
 
-    var id: String = ""
-    var name: String = ""
-    var symbol: String = ""
-    var priceUSD: String = ""
-    var priceBTC: String = ""
+    @objc dynamic var id: String = ""
+    @objc dynamic var name: String = ""
+    @objc dynamic var symbol: String = ""
+    @objc dynamic var priceUSD: String = ""
+    @objc dynamic var priceBTC: String = ""
 
-//    init(id: String, name: String, symbol: String, priceUSD: Double, priceBTC: Double) {
-//        self.id = id
-//        self.name = name
-//        self.symbol = symbol
-//        self.priceUSD = priceUSD
-//        self.priceBTC = priceBTC
-//    }
+    override static func primaryKey() -> String? {
+        return "id"
+    }
 }

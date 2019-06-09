@@ -17,12 +17,20 @@ class CurrencyDetailViewController: UIViewController {
     @IBOutlet weak var symbolLabel: UILabel!
     @IBOutlet weak var priceUSDLabel: UILabel!
     @IBOutlet weak var priceBTCLabel: UILabel!
-
+    @IBOutlet weak var favoritesButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.fillCurrencyData()
         Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(updateData), userInfo: nil, repeats: true)
+
+        if DatabaseService.checkIsFavorited(currency: self.currency) {
+            favoritesButton.setTitle("Remove from favorites", for: .normal)
+        }
+        else {
+            favoritesButton.setTitle("Add to favorites", for: .normal)
+        }
     }
     
     @IBAction func backButtonAction(_ sender: Any) {
@@ -31,6 +39,17 @@ class CurrencyDetailViewController: UIViewController {
 
     @IBAction func updateButtonAction(_ sender: Any) {
         updateData()
+    }
+
+    @IBAction func favoritesButtonAction(_ sender: Any) {
+        if DatabaseService.checkIsFavorited(currency: self.currency) {
+            DatabaseService.removeFromFavorites(currency: self.currency)
+            favoritesButton.setTitle("Add to favorites", for: .normal)
+        }
+        else {
+            DatabaseService.addToFavorites(currency: self.currency)
+            favoritesButton.setTitle("Remove from favorites", for: .normal)
+        }
     }
 
     @objc func updateData() {

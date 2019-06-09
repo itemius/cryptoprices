@@ -84,6 +84,16 @@
                                                 </connections>
                                             </button>
                                         </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" style="plain" id="nKb-X9-xTa">
+                                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="u0Y-3N-AkJ">
+                                                <rect key="frame" x="276" y="7" width="83" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" title="Update"/>
+                                                <connections>
+                                                    <action selector="updateButtonAction:" destination="ppY-S3-cJX" eventType="touchUpInside" id="xlM-i1-Zl6"/>
+                                                </connections>
+                                            </button>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -164,14 +174,14 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7vh-q6-taV">
-                                <rect key="frame" x="162" y="313" width="51" height="30"/>
+                                <rect key="frame" x="112" y="313" width="151" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="c2L-aG-Fzm"/>
-                                    <constraint firstAttribute="width" constant="51" id="fc1-kv-KkP"/>
+                                    <constraint firstAttribute="width" constant="151" id="fc1-kv-KkP"/>
                                 </constraints>
-                                <state key="normal" title="Update"/>
+                                <state key="normal" title="Add to favorites"/>
                                 <connections>
-                                    <action selector="updateButtonAction:" destination="ppY-S3-cJX" eventType="touchUpInside" id="Ivj-mQ-Mob"/>
+                                    <action selector="favoritesButtonAction:" destination="ppY-S3-cJX" eventType="touchUpInside" id="hrK-G2-yOn"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -206,6 +216,7 @@
                         <viewLayoutGuide key="safeArea" id="225-oP-Uwt"/>
                     </view>
                     <connections>
+                        <outlet property="favoritesButton" destination="7vh-q6-taV" id="DxY-TS-qXn"/>
                         <outlet property="nameLabel" destination="c7S-dZ-QqY" id="nzF-me-guY"/>
                         <outlet property="priceBTCLabel" destination="YUT-Ks-7l0" id="dYc-zU-7BP"/>
                         <outlet property="priceUSDLabel" destination="q35-2k-FeT" id="sdj-l5-7vm"/>
@@ -223,16 +234,44 @@
                     <view key="view" contentMode="scaleToFill" id="QS5-Rx-YEW">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="179-0e-YRH">
+                                <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="DOC-wU-qgq"/>
+                                </constraints>
+                                <items>
+                                    <navigationItem title="Favorites list" id="H45-7r-Xgd"/>
+                                </items>
+                            </navigationBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="DqQ-Zn-irY">
+                                <rect key="frame" x="0.0" y="88" width="375" height="641"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="179-0e-YRH" firstAttribute="leading" secondItem="O1u-W8-tvY" secondAttribute="leading" id="8OW-oZ-gg1"/>
+                            <constraint firstItem="DqQ-Zn-irY" firstAttribute="trailing" secondItem="O1u-W8-tvY" secondAttribute="trailing" id="PBL-yZ-kGD"/>
+                            <constraint firstItem="179-0e-YRH" firstAttribute="trailing" secondItem="O1u-W8-tvY" secondAttribute="trailing" id="XOA-Ri-8nC"/>
+                            <constraint firstItem="DqQ-Zn-irY" firstAttribute="bottom" secondItem="O1u-W8-tvY" secondAttribute="bottom" id="g6N-fR-gHp"/>
+                            <constraint firstItem="179-0e-YRH" firstAttribute="top" secondItem="O1u-W8-tvY" secondAttribute="top" id="gLP-6y-WNA"/>
+                            <constraint firstItem="DqQ-Zn-irY" firstAttribute="leading" secondItem="O1u-W8-tvY" secondAttribute="leading" id="n5U-Qs-6QA"/>
+                            <constraint firstItem="DqQ-Zn-irY" firstAttribute="top" secondItem="179-0e-YRH" secondAttribute="bottom" id="n7W-yo-Yvb"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="O1u-W8-tvY"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Favorites" id="cPa-gy-q4n">
                         <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-16"/>
                     </tabBarItem>
+                    <connections>
+                        <outlet property="tableView" destination="DqQ-Zn-irY" id="WIr-Cw-9kb"/>
+                        <segue destination="ppY-S3-cJX" kind="show" identifier="showCurrencyDetailFromFavorites" id="HSB-Hd-JE6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="750" y="360"/>
+            <point key="canvasLocation" x="749.60000000000002" y="359.85221674876851"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
@@ -253,4 +292,7 @@
             <point key="canvasLocation" x="0.0" y="0.0"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="HSB-Hd-JE6"/>
+    </inferredMetricsTieBreakers>
 </document>

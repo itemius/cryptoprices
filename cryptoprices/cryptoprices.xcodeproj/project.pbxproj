@@ -21,6 +21,7 @@
 		503E1A3822AC3CEF009F1574 /* CurrencyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 503E1A3622AC3CEF009F1574 /* CurrencyTableViewCell.xib */; };
 		503E1A3B22AC56CD009F1574 /* ApiDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 503E1A3A22AC56CD009F1574 /* ApiDataService.swift */; };
 		503E1A3D22AD0126009F1574 /* CurrencyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 503E1A3C22AD0126009F1574 /* CurrencyService.swift */; };
+		503E1A3F22AD6B25009F1574 /* DatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 503E1A3E22AD6B25009F1574 /* DatabaseService.swift */; };
 		E27FEF8AA346BD6B44FB8BCF /* Pods_cryptoprices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86EC840179B38AD194DC86FD /* Pods_cryptoprices.framework */; };
 /* End PBXBuildFile section */
 
@@ -52,6 +53,7 @@
 		503E1A3622AC3CEF009F1574 /* CurrencyTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CurrencyTableViewCell.xib; sourceTree = "<group>"; };
 		503E1A3A22AC56CD009F1574 /* ApiDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiDataService.swift; sourceTree = "<group>"; };
 		503E1A3C22AD0126009F1574 /* CurrencyService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyService.swift; sourceTree = "<group>"; };
+		503E1A3E22AD6B25009F1574 /* DatabaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseService.swift; sourceTree = "<group>"; };
 		5879EB303B8ECA8FFE096CE4 /* Pods-cryptoprices.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-cryptoprices.debug.xcconfig"; path = "Pods/Target Support Files/Pods-cryptoprices/Pods-cryptoprices.debug.xcconfig"; sourceTree = "<group>"; };
 		723F5113CCFF11E22C44F6A0 /* Pods-cryptopricesTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-cryptopricesTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-cryptopricesTests/Pods-cryptopricesTests.debug.xcconfig"; sourceTree = "<group>"; };
 		86EC840179B38AD194DC86FD /* Pods_cryptoprices.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_cryptoprices.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -173,6 +175,7 @@
 			children = (
 				503E1A3A22AC56CD009F1574 /* ApiDataService.swift */,
 				503E1A3C22AD0126009F1574 /* CurrencyService.swift */,
+				503E1A3E22AD6B25009F1574 /* DatabaseService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -307,12 +310,16 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-cryptoprices/Pods-cryptoprices-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -363,6 +370,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				503E1A3F22AD6B25009F1574 /* DatabaseService.swift in Sources */,
 				503E1A3B22AC56CD009F1574 /* ApiDataService.swift in Sources */,
 				503E1A0C22AC1481009F1574 /* FavoritesViewController.swift in Sources */,
 				503E1A3422AC394C009F1574 /* Currency.swift in Sources */,
