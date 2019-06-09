@@ -26,6 +26,8 @@ class CurrenciesViewController: UIViewController {
         refreshControl.addTarget(self, action: #selector(refreshCurrenciesData(_:)), for: .valueChanged)
 
         tableView.refreshControl = refreshControl
+
+        Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(updateData), userInfo: nil, repeats: true)
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -36,6 +38,11 @@ class CurrenciesViewController: UIViewController {
 
     @objc private func refreshCurrenciesData(_ sender: Any) {
         loadCurrencies()
+    }
+
+    @objc func updateData() {
+        MBProgressHUD.showAdded(to: self.view, animated: true)
+        self.loadCurrencies()
     }
 
     func loadCurrencies() {

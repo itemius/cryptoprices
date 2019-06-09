@@ -22,6 +22,7 @@ class CurrencyDetailViewController: UIViewController {
         super.viewDidLoad()
 
         self.fillCurrencyData()
+        Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(updateData), userInfo: nil, repeats: true)
     }
     
     @IBAction func backButtonAction(_ sender: Any) {
@@ -29,6 +30,10 @@ class CurrencyDetailViewController: UIViewController {
     }
 
     @IBAction func updateButtonAction(_ sender: Any) {
+        updateData()
+    }
+
+    @objc func updateData() {
         MBProgressHUD.showAdded(to: self.view, animated: true)
         self.loadCurrencyDetail()
     }
