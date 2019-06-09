@@ -15,6 +15,7 @@ class CurrenciesViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
 
     var currenciesList: [Currency] = [Currency]()
+    var selectedCurrency: Currency = Currency()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,7 +26,10 @@ class CurrenciesViewController: UIViewController {
         refreshControl.addTarget(self, action: #selector(refreshCurrenciesData(_:)), for: .valueChanged)
 
         tableView.refreshControl = refreshControl
-        
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         MBProgressHUD.showAdded(to: self.view, animated: true)
         self.loadCurrencies()
     }
@@ -70,21 +74,33 @@ class CurrenciesViewController: UIViewController {
             currencyModel.symbol = symbol
         }
 
-        if let priceUSD = currency["price_usd"].double {
+        if let priceUSD = currency["price_usd"].string {
             currencyModel.priceUSD = priceUSD
         }
 
-        if let priceBTC = currency["price_btc"].double {
+        if let priceBTC = currency["price_btc"].string {
             currencyModel.priceBTC = priceBTC
         }
 
         return currencyModel
     }
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showCurrencyDetail" {
+            if let destinationVC = segue.destination as? CurrencyDetailViewController {
+                destinationVC.currency = self.selectedCurrency
+            }
+        }
+    }
+
 }
 
 extension CurrenciesViewController: UITableViewDelegate {
 
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.selectedCurrency = currenciesList[indexPath.row]
+        self.performSegue(withIdentifier: "showCurrencyDetail", sender: self)
+    }
 }
 
 extension CurrenciesViewController: UITableViewDataSource {

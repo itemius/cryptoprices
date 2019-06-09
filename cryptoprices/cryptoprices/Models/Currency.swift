@@ -13,8 +13,8 @@ class Currency {
     var id: String = ""
     var name: String = ""
     var symbol: String = ""
-    var priceUSD: Double = 0.0
-    var priceBTC: Double = 0.0
+    var priceUSD: String = ""
+    var priceBTC: String = ""
 
 //    init(id: String, name: String, symbol: String, priceUSD: Double, priceBTC: Double) {
 //        self.id = id

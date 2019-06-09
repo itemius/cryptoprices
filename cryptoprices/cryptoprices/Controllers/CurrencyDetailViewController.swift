@@ -10,12 +10,25 @@ import UIKit
 
 class CurrencyDetailViewController: UIViewController {
 
+    var currency: Currency = Currency()
+
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var symbolLabel: UILabel!
+    @IBOutlet weak var priceUSDLabel: UILabel!
+    @IBOutlet weak var priceBTCLabel: UILabel!
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        nameLabel.text = currency.name
+        symbolLabel.text = currency.symbol
+        priceUSDLabel.text = currency.priceUSD
+        priceBTCLabel.text = currency.priceBTC
     }
     
+    @IBAction func dismissVC(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
 
     /*
     // MARK: - Navigation
