@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MBProgressHUD
 
 class CurrencyDetailViewController: UIViewController {
 
@@ -20,14 +21,31 @@ class CurrencyDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.fillCurrencyData()
+    }
+    
+    @IBAction func backButtonAction(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
+
+    @IBAction func updateButtonAction(_ sender: Any) {
+        MBProgressHUD.showAdded(to: self.view, animated: true)
+        self.loadCurrencyDetail()
+    }
+
+    func fillCurrencyData() {
         nameLabel.text = currency.name
         symbolLabel.text = currency.symbol
         priceUSDLabel.text = currency.priceUSD
         priceBTCLabel.text = currency.priceBTC
     }
-    
-    @IBAction func dismissVC(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
+
+    func loadCurrencyDetail() {
+        CurrencyService.getCurrencyDetail(id: currency.id) { result in
+            self.currency = result
+            self.fillCurrencyData()
+            MBProgressHUD.hide(for: self.view, animated: true)
+        }
     }
 
     /*

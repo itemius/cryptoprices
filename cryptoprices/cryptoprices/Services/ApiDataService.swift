@@ -13,7 +13,7 @@ import SwiftyJSON
 // MARK: - Basic Setup -
 
 class ApiDataService {
-    static let endpoint = "https://api.coinmarketcap.com/v1/"
+    static let endpoint = "https://api.coinmarketcap.com/v1"
     static let manager = SessionManager(configuration: ApiDataService.configuration())
 
     static func configuration() -> URLSessionConfiguration {

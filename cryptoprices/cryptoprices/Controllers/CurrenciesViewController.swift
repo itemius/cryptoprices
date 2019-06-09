@@ -39,50 +39,12 @@ class CurrenciesViewController: UIViewController {
     }
 
     func loadCurrencies() {
-        ApiDataService.getCurrencies { response in
-            switch response.result {
-            case .success :
-                if let resultValue = response.result.value {
-                    let json = JSON(resultValue)
-                    if let currencies = json.array {
-                        for currency in currencies {
-                            let currencyModel = self.parseCurrencyModel(currency: currency)
-                            self.currenciesList.append(currencyModel)
-                        }
-                        self.tableView.reloadData()
-                        self.tableView.refreshControl?.endRefreshing()
-                        MBProgressHUD.hide(for: self.view, animated: true)
-                    }
-                }
-            case .failure(let error):
-                print("ERROR: \(error)")
-            }
+        CurrencyService.getCurrencies { result in
+            self.currenciesList = result
+            self.tableView.reloadData()
+            self.tableView.refreshControl?.endRefreshing()
+            MBProgressHUD.hide(for: self.view, animated: true)
         }
-    }
-
-    func parseCurrencyModel(currency: JSON) -> Currency {
-        let currencyModel = Currency()
-        if let id = currency["id"].string {
-            currencyModel.id = id
-        }
-
-        if let name = currency["name"].string {
-            currencyModel.name = name
-        }
-
-        if let symbol = currency["symbol"].string {
-            currencyModel.symbol = symbol
-        }
-
-        if let priceUSD = currency["price_usd"].string {
-            currencyModel.priceUSD = priceUSD
-        }
-
-        if let priceBTC = currency["price_btc"].string {
-            currencyModel.priceBTC = priceBTC
-        }
-
-        return currencyModel
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

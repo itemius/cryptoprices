@@ -80,7 +80,7 @@
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" title="Back"/>
                                                 <connections>
-                                                    <action selector="dismissVC:" destination="ppY-S3-cJX" eventType="touchUpInside" id="NCn-7g-fPj"/>
+                                                    <action selector="backButtonAction:" destination="ppY-S3-cJX" eventType="touchUpInside" id="CSu-69-wNz"/>
                                                 </connections>
                                             </button>
                                         </barButtonItem>
@@ -163,10 +163,23 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7vh-q6-taV">
+                                <rect key="frame" x="162" y="313" width="51" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="c2L-aG-Fzm"/>
+                                    <constraint firstAttribute="width" constant="51" id="fc1-kv-KkP"/>
+                                </constraints>
+                                <state key="normal" title="Update"/>
+                                <connections>
+                                    <action selector="updateButtonAction:" destination="ppY-S3-cJX" eventType="touchUpInside" id="Ivj-mQ-Mob"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="7vh-q6-taV" firstAttribute="top" secondItem="YUT-Ks-7l0" secondAttribute="bottom" constant="32" id="46n-jq-rjD"/>
                             <constraint firstItem="aEx-xd-VLH" firstAttribute="leading" secondItem="225-oP-Uwt" secondAttribute="leading" id="9XO-iz-bx4"/>
+                            <constraint firstItem="7vh-q6-taV" firstAttribute="centerX" secondItem="EgN-sb-5pY" secondAttribute="centerX" id="9hW-0z-ts3"/>
                             <constraint firstItem="3oB-3c-GCS" firstAttribute="top" secondItem="vyv-Gr-bZy" secondAttribute="bottom" constant="26" id="9oj-M4-VRI"/>
                             <constraint firstItem="225-oP-Uwt" firstAttribute="trailing" secondItem="q35-2k-FeT" secondAttribute="trailing" constant="8" id="GNZ-e0-z0u"/>
                             <constraint firstItem="eWo-bs-Saz" firstAttribute="leading" secondItem="vyv-Gr-bZy" secondAttribute="trailing" constant="8" id="Jxy-D1-Mh1"/>
