@@ -45,4 +45,16 @@ class DatabaseService {
         let currencies = Array(realm.objects(Currency.self))
         return currencies
     }
+
+    static func clearCurrencies() {
+        let realm = try! Realm()
+
+        let results = try! Realm().objects(Currency.self)
+
+        for currency in results {
+            realm.beginWrite()
+            realm.delete(currency)
+            try! realm.commitWrite()
+        }
+    }
 }

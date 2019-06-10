@@ -11,7 +11,7 @@ import SwiftyJSON
 
 class CurrencyService {
 
-    static func getCurrencies(completion: @escaping ([Currency]) -> Void) {
+    static func getCurrencies(completion: @escaping ([Currency]?) -> Void) {
         ApiDataService.getCurrencies { response in
             switch response.result {
             case .success :
@@ -28,11 +28,12 @@ class CurrencyService {
                 }
             case .failure(let error):
                 print("ERROR: \(error)")
+                completion(nil)
             }
         }
     }
 
-    static func getCurrencyDetail(id: String, completion: @escaping (Currency) -> Void) {
+    static func getCurrencyDetail(id: String, completion: @escaping (Currency?) -> Void) {
         ApiDataService.getCurrencyDetail(id: id) { response in
             switch response.result {
             case .success :
@@ -43,6 +44,7 @@ class CurrencyService {
                 }
             case .failure(let error):
                 print("ERROR: \(error)")
+                completion(nil)
             }
         }
     }

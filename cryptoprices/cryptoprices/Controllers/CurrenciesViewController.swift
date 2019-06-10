@@ -27,7 +27,7 @@ class CurrenciesViewController: UIViewController {
 
         tableView.refreshControl = refreshControl
 
-        Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(updateData), userInfo: nil, repeats: true)
+        Timer.scheduledTimer(timeInterval: 15, target: self, selector: #selector(updateData), userInfo: nil, repeats: true)
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -47,8 +47,13 @@ class CurrenciesViewController: UIViewController {
 
     func loadCurrencies() {
         CurrencyService.getCurrencies { result in
-            self.currenciesList = result
-            self.tableView.reloadData()
+            if let currencies = result {
+                self.currenciesList = currencies
+                self.tableView.reloadData()
+            }
+            else {
+                self.showErrorAlert("Error loading data")
+            }
             self.tableView.refreshControl?.endRefreshing()
             MBProgressHUD.hide(for: self.view, animated: true)
         }

@@ -37,6 +37,8 @@ class FavoritesViewController: UIViewController {
             if let destinationVC = segue.destination as? CurrencyDetailViewController {
                 destinationVC.currency = self.selectedCurrency
             }
+            self.selectedCurrency = Currency()
+            self.currenciesList = [Currency]()
         }
     }
 }

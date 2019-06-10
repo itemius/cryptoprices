@@ -23,7 +23,7 @@ class CurrencyDetailViewController: UIViewController {
         super.viewDidLoad()
 
         self.fillCurrencyData()
-        Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(updateData), userInfo: nil, repeats: true)
+        Timer.scheduledTimer(timeInterval: 10, target: self, selector: #selector(updateData), userInfo: nil, repeats: true)
 
         if DatabaseService.checkIsFavorited(currency: self.currency) {
             favoritesButton.setTitle("Remove from favorites", for: .normal)
@@ -44,6 +44,7 @@ class CurrencyDetailViewController: UIViewController {
     @IBAction func favoritesButtonAction(_ sender: Any) {
         if DatabaseService.checkIsFavorited(currency: self.currency) {
             DatabaseService.removeFromFavorites(currency: self.currency)
+            self.currency = Currency()
             favoritesButton.setTitle("Add to favorites", for: .normal)
         }
         else {
@@ -66,8 +67,13 @@ class CurrencyDetailViewController: UIViewController {
 
     func loadCurrencyDetail() {
         CurrencyService.getCurrencyDetail(id: currency.id) { result in
-            self.currency = result
-            self.fillCurrencyData()
+            if let currency = result {
+                self.currency = currency
+                self.fillCurrencyData()
+            }
+            else {
+                self.showErrorAlert("Error loading data")
+            }
             MBProgressHUD.hide(for: self.view, animated: true)
         }
     }
